@@ -26,7 +26,8 @@ class User extends Authenticatable
     }
 
     public function getGenderTitleAttribute() {
-        return self::getGenders()[$this->gender];
+        $genders = self::getGenders();
+        return $genders[$this->gender] ?? 'Clarify gender';
     }
 
     /**
