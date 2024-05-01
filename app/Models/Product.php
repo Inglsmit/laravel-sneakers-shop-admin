@@ -18,6 +18,11 @@ class Product extends Model
         return $this->is_published ? 'Yes' : 'No';
     }
 
+    public function getImageUrlAttribute()
+    {
+        return url('storage/'. $this->preview_image);
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'product_tag', 'product_id', 'tag_id');

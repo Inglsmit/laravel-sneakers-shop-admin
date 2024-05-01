@@ -44,7 +44,7 @@
                                     </tr>
                                     <tr>
                                         <td>Image</td>
-                                        <td><img width="300" src="{{ asset('storage/' . $product->preview_image) }}"></td>
+                                        <td><img width="300" src="{{  $product->image_url }}" /></td>
                                     </tr>
                                     <tr>
                                         <td>Title</td>
