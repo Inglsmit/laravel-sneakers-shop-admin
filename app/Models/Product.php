@@ -38,4 +38,9 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
+    public function model_group()
+    {
+        return $this->belongsTo(ModelGroup::class, 'model_group_id', 'id');
+    }
+
 }

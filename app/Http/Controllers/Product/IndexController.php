@@ -10,7 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $products = Product::with('category', 'tags')->get();
+        $products = Product::with('category', 'model_group', 'tags')->get();
         $products->transform(function ($product) {
             $product->published_text = $product->is_published ? 'Yes' : 'No';
             return $product;

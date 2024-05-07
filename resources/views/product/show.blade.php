@@ -47,6 +47,10 @@
                                         <td><img width="300" src="{{  $product->image_url }}" /></td>
                                     </tr>
                                     <tr>
+                                        <td>Model Group</td>
+                                        <td>{{ optional($product->model_group)->title ?? 'Not Set' }}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Title</td>
                                         <td>{{ $product->title }}</td>
                                     </tr>

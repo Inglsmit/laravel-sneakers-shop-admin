@@ -34,6 +34,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
+                                        <th>Model group</th>
                                         <th>Price</th>
                                         <th>Count</th>
                                         <th>Published</th>
@@ -47,6 +48,7 @@
                                         <tr>
                                             <td>{{ $product->id }}</td>
                                             <td><a href="{{ route('product.show', $product->id) }}">{{ $product->title }}</a></td>
+                                            <td>{{ optional($product->model_group)->title ?? 'Not Set' }}</td>
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->count }}</td>
                                             <td>{{ $product->published_text }}</td>

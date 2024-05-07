@@ -64,3 +64,13 @@ Route::group(['prefix' => 'products'], function(){
     Route::patch('/{product}', \App\Http\Controllers\Product\UpdateController::class)->name('product.update');
     Route::delete('/{product}', \App\Http\Controllers\Product\DeleteController::class)->name('product.delete');
 });
+
+Route::group(['prefix' => 'model-groups'], function(){
+    Route::get('/', \App\Http\Controllers\ModelGroup\IndexController::class)->name('modelGroup.index');
+    Route::get('/create', \App\Http\Controllers\ModelGroup\CreateController::class)->name('modelGroup.create');
+    Route::post('/', \App\Http\Controllers\ModelGroup\StoreController::class)->name('modelGroup.store');
+    Route::get('/{modelGroup}/edit', \App\Http\Controllers\ModelGroup\EditController::class)->name('modelGroup.edit');
+    Route::get('/{modelGroup}', \App\Http\Controllers\ModelGroup\ShowController::class)->name('modelGroup.show');
+    Route::patch('/{modelGroup}', \App\Http\Controllers\ModelGroup\UpdateController::class)->name('modelGroup.update');
+    Route::delete('/{modelGroup}', \App\Http\Controllers\ModelGroup\DeleteController::class)->name('modelGroup.delete');
+});

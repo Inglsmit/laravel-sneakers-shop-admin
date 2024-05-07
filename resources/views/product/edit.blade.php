@@ -30,6 +30,15 @@
                         <input type="text" id="title" name="title" value="{{ $product->title ?? old('title') }}" class="form-control">
                     </div>
                     <div class="form-group">
+                        <label for="model_group">Model group</label>
+                        <select id="model_group" name="model_group_id" class="form-control select2" style="width: 100%;">
+                            <option value=""></option>
+                            @foreach($model_groups as $model_group)
+                                <option {{ $model_group->id == $product->model_group_id || old('model_group_id') == $model_group->id ? ' selected' : '' }} value="{{ $model_group->id }}" >{{ $model_group->title }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="description">Description</label>
                         <input type="text" id="description" name="description" value="{{ $product->description ?? old('description') }}" class="form-control">
                     </div>
