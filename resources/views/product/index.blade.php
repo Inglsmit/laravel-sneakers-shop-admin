@@ -52,7 +52,7 @@
                                             <td>{{ $product->price }}</td>
                                             <td>{{ $product->count }}</td>
                                             <td>{{ $product->published_text }}</td>
-                                            <td>{{ $product->category->title }}</td>
+                                            <td>{{ optional($product->category)->title }}</td>
                                             <td>
                                                 @foreach ($product->tags as $index => $tag)
                                                     {{ $tag->title }}

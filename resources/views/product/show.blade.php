@@ -76,7 +76,7 @@
                                     </tr>
                                     <tr>
                                         <td>Category</td>
-                                        <td>{{ $product->category->title }}</td>
+                                        <td>{{ optional($product->category)->title }}</td>
                                     </tr>
                                     <tr>
                                         <td>Tags</td>

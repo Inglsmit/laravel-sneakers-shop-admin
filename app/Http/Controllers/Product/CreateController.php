@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Color;
 use App\Models\ModelGroup;
+use App\Models\ProductImage;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 

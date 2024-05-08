@@ -25,6 +25,7 @@ class UpdateRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'required',
             'content' => 'required',
+            'preview_image' => 'nullable',
             'price' => 'required',
             'count' => 'required',
             'is_published' => 'nullable',
@@ -32,6 +33,7 @@ class UpdateRequest extends FormRequest
             'model_group_id' => 'nullable',
             'tags' => 'nullable|array',
             'colors' => 'nullable|array',
+            'product_images' => 'nullable|array',
         ];
     }
 }

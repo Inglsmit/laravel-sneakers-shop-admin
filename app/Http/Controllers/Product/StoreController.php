@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\StoreRequest;
 use App\Models\ColorProduct;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\ProductTag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class StoreController extends Controller
@@ -20,7 +22,8 @@ class StoreController extends Controller
         $data['is_published'] = $data['is_published'] ? '1' : '0';
         $tagsIds = $data['tags'] ?? null;
         $colorsIds = $data['colors'] ?? null;
-        unset($data['tags'], $data['colors']);
+        $productImages = $data['product_images'] ?? null;
+        unset($data['tags'], $data['colors'], $data['product_images']);
 
         $product = Product::firstOrCreate([
             'title' => $data['title']
@@ -35,6 +38,20 @@ class StoreController extends Controller
             $product->colors()->sync($colorsIds);
         }else{
             $product->colors()->detach();
+        }
+
+        if($productImages !== null){
+            foreach ($productImages as $productImage) {
+                try {
+                    $filePath = Storage::disk('public')->put('/images', $productImage);
+                    ProductImage::create([
+                        'product_id' => $product->id,
+                        'file_path' => $filePath,
+                    ]);
+                } catch (\Exception $e) {
+                    Log::error('Error occurred while saving product image: ' . $e->getMessage());
+                }
+            }
         }
 
 //        foreach ($tagsIds as $tagsId){

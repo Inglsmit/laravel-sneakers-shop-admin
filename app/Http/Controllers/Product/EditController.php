@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Color;
 use App\Models\ModelGroup;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class EditController extends Controller
         $categories = Category::all();
         $model_groups = ModelGroup::all();
 
-        $product->load('tags', 'colors');
+        $product->load('tags', 'colors', 'product_images');
+//        dd($product);
         return view('product.edit', compact('product','tags', 'colors', 'categories', 'model_groups'));
     }
 }
